@@ -77,6 +77,8 @@ const displayMenu = async () => {
   heroSection.setAttribute('style', 'visibility: hidden;')
   if(!underSection.classList.contains('hide')) {
     underSection.classList.add('hide')
+  } else {
+    underSection.setAttribute('style', 'visibility: hidden;')
   }
   setTimeout(() => {
     clearForMenu.classList.add("hide");

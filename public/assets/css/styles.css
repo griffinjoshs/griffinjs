@@ -66,6 +66,10 @@ header {
 }
 
 /* navbar and navmenu */
+#nav-wrap {
+  display: flex;
+width: 100%;
+}
 
 nav {
   position: absolute;
@@ -74,7 +78,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
   text-shadow: 5px 5px 24px var(--primaryColor),
     -5px 5px 36px var(--primaryColor), 6px 5px 29px var(--primaryColor),
     -2px -5px 10px var(--primaryColor), 40px 5px 44px var(--primaryColor),
@@ -84,6 +87,7 @@ nav {
   z-index: 10;
   background: transparent;
   width: 100%;
+  margin: 15px 0;
 }
 
 .nav-left {
@@ -93,6 +97,7 @@ nav {
   height: min-content;
   cursor: pointer;
   flex-grow: 1;
+  margin-left: 10px;
 }
 
 .nav-left img {
@@ -118,7 +123,7 @@ nav {
   color: var(--textColor);
   border: none;
   font-size: 7.5vh;
-  padding-right: 30px
+  /* padding-right: 30px */
 }
 
 .name-logo {
@@ -239,6 +244,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: changeColorBlink 2.5s infinite;
 }
 
 .hero-btn button:hover {
