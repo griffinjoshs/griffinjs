@@ -440,6 +440,10 @@ h5 {
     width: 50%;
   }
 
+  .work-section {
+    padding: 100px 0;
+  }
+
   .type-of-work {
     display: flex;
     align-items: center;
@@ -631,6 +635,10 @@ h5 {
   /* .sub-header {
     margin-top: 150px;
   } */
+
+  .work-section {
+    padding: 200px 0;
+  }
 
   .type-of-work {
     display: flex;
@@ -1035,7 +1043,6 @@ h5 {
   justify-content: space-evenly;
   align-items: center;
   /* overflow: hidden; */
-  padding: 100px 0;
   margin: 100px 0;
   position: relative;
   height: 100vh;
