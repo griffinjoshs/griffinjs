@@ -68,7 +68,9 @@ header {
 /* navbar and navmenu */
 
 nav {
-  /* position: fixed; */
+  position: absolute;
+    /* top: 0; */
+    /* left: 0; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +82,8 @@ nav {
     -8px -35px 40px var(--primaryColor);
   filter: drop-shadow(55px -2px 30px var(--primaryColor));
   z-index: 10;
+  background: transparent;
+  width: 100%;
 }
 
 .nav-left {
@@ -114,6 +118,7 @@ nav {
   color: var(--textColor);
   border: none;
   font-size: 7.5vh;
+  padding-right: 30px
 }
 
 .name-logo {
@@ -124,7 +129,7 @@ nav {
 
 /* menu */
 #menu {
-  height: 80vh;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
 }
@@ -148,6 +153,7 @@ nav {
 
 .menu-btns button:hover {
   background-color: var(--primaryColor);
+  animation: colorSlide 3s;
 }
 
 .menu-btns h5 {
@@ -159,9 +165,9 @@ nav {
 .hero-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   font-family: "Cabin", sans-serif;
-  height: 80%;
+  height: 100vh;
   /* padding-top: 100px; */
   /* text-shadow: 5px 5px 54px var(--primaryColor), -5px 5px 36px var(--primaryColor), 6px 5px 29px var(--primaryColor), -2px -5px 10px var(--primaryColor), 40px 5px 44px var(--primaryColor), -95px 25px 40px var(--primaryColor), 6px 15px 39px var(--primaryColor), -8px -35px 40px var(--primaryColor); */
 }
@@ -250,6 +256,11 @@ nav {
   overflow: hidden;
   width: 35%;
   filter: drop-shadow(55px -2px 30px var(--primaryColor));
+}
+
+.hero-right img {
+  display: flex;
+  align-items: flex-end;
 }
 
 /* under section */
@@ -359,7 +370,7 @@ h5 {
   }
 
   .hero-text {
-    padding-bottom: 80px;
+    padding-top: 80px;
   }
 
   .hero-btn button {

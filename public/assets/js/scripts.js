@@ -5,6 +5,7 @@ let serviceBtn = document.querySelectorAll(".service-btn");
 const navbar = document.getElementById("navbar");
 const navMenu = document.getElementById("menu");
 const clearForMenu = document.querySelector(".clear-for-menu");
+const heroSection = document.querySelector('.hero-section')
 const modal = document.querySelector("#cert-modal");
 const socialMediaBtns = [
   {
@@ -63,26 +64,41 @@ const loadMenu = () => {
   `;
 };
 
+const addAnimation = () => {
+  document.body.classList.add('color-slide')
+};
+
+const resetAnimation = () => {
+  document.body.classList.remove("color-slide");
+};
+
 const displayMenu = async () => {
-  clearForMenu.classList.add('slide-out-right')
+  addAnimation()
+  heroSection.setAttribute('style', 'visibility: hidden;')
+  if(!underSection.classList.contains('hide')) {
+    underSection.classList.add('hide')
+  }
   setTimeout(() => {
     clearForMenu.classList.add("hide");
     navMenu.classList.remove("hide");
     navMenu.classList.add("flex");
     document.getElementById("hamburger").classList.add("hide");
     document.getElementById("close").classList.remove("hide");
-    navMenu.classList.add('slide-in-left')
-  }, 3000)
+    resetAnimation()
+  }, 2800)
  };
 
 const goBackToPage = () => {
   clearForMenu.classList.remove("hide");
-  clearForMenu.classList.remove("slide-out-right");
-  clearForMenu.classList.add("slide-in-left");
   navMenu.classList.add("hide");
-  navMenu.classList.remove("flex");
-  document.getElementById("hamburger").classList.remove("hide");
-  document.getElementById("close").classList.add("hide");
+  navMenu.classList.remove("flex");  
+  addAnimation()
+  setTimeout(() => {
+    heroSection.setAttribute('style', 'visibility: visible;')
+    document.getElementById("hamburger").classList.remove("hide");
+    document.getElementById("close").classList.add("hide");
+    resetAnimation()
+  }, 2800)
 };
 
 loadNavBar();
