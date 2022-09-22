@@ -65,12 +65,14 @@ const loadMenu = () => {
 
 const displayMenu = async () => {
   clearForMenu.classList.add('slide-out-right')
-  clearForMenu.classList.add("hide");
-  navMenu.classList.remove("hide");
-  navMenu.classList.add("flex");
-  document.getElementById("hamburger").classList.add("hide");
-  document.getElementById("close").classList.remove("hide");
-  navMenu.classList.add('slide-in-left')
+  setTimeout(() => {
+    clearForMenu.classList.add("hide");
+    navMenu.classList.remove("hide");
+    navMenu.classList.add("flex");
+    document.getElementById("hamburger").classList.add("hide");
+    document.getElementById("close").classList.remove("hide");
+    navMenu.classList.add('slide-in-left')
+  }, 3000)
  };
 
 const goBackToPage = () => {
