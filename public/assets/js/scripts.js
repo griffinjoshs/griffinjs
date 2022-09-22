@@ -1,11 +1,4 @@
-const header = document.getElementById('header')
-const displaySkill = document.getElementById("displaySkill");
-const underSection = document.querySelector("#under-section");
 let serviceBtn = document.querySelectorAll(".service-btn");
-const navbar = document.getElementById("navbar");
-const navMenu = document.getElementById("menu");
-const clearForMenu = document.querySelector(".clear-for-menu");
-const heroSection = document.querySelector('.hero-section')
 const modal = document.querySelector("#cert-modal");
 const socialMediaBtns = [
   {
@@ -17,94 +10,6 @@ const socialMediaBtns = [
     link: "https://www.linkedin.com/in/griffin-surett-44a13b16a/",
   },
 ];
-
-const linkTo = (link) => {
-  window.location.href = link;
-};
-
-const loadNavBar = () => {
-  navbar.innerHTML += `
-  <div class="nav-left" onclick="linkTo('/')">
-            <img src="./assets/images/grifflogobold.svg" height="80" width="80" id='navbar-logo' style='margin-right: 5px;'>
-            <div class="name-logo">
-                <h1>Griffin</h1>
-            </div>
-        </div>
-        <div class="nav-right">
-       <button class='icon' id='hamburger' onclick='displayMenu()'>
-        <ion-icon name="menu-outline"></ion-icon>
-         </button>
-       <button class='icon hide' id='close' onclick='goBackToPage()'>
-       <ion-icon name="close-outline"></ion-icon>
-       </button>
-       <button class='icon hide' id='scrollTop'>
-       </button>
-       </div>
-  `;
-};
-
-const loadMenu = () => {
-  navMenu.classList.remove("flex");
-  navMenu.innerHTML += `
-  <div class='menu-btns'>
-    <button onclick="linkTo('/')">
-    <h5>Home</h5>
-    </button>
-    <button onclick="linkTo('/about')">
-    <h5>About</h5>
-    </button>
-    <button onclick="linkTo('/')">
-    <h5>Resume</h5>
-    </button>
-    <button onclick="linkTo('/contact')">
-    <h5>Contact Me</h5>
-    </button>
-  </div>
-
-  `;
-};
-
-const addAnimation = () => {
-  document.body.classList.add('color-slide')
-};
-
-const resetAnimation = () => {
-  document.body.classList.remove("color-slide");
-};
-
-const displayMenu = async () => {
-  addAnimation()
-  heroSection.setAttribute('style', 'visibility: hidden;')
-  if(!underSection.classList.contains('hide')) {
-    underSection.classList.add('hide')
-  } else {
-    underSection.setAttribute('style', 'visibility: hidden;')
-  }
-  setTimeout(() => {
-    clearForMenu.classList.add("hide");
-    navMenu.classList.remove("hide");
-    navMenu.classList.add("flex");
-    document.getElementById("hamburger").classList.add("hide");
-    document.getElementById("close").classList.remove("hide");
-    resetAnimation()
-  }, 2800)
- };
-
-const goBackToPage = () => {
-  clearForMenu.classList.remove("hide");
-  navMenu.classList.add("hide");
-  navMenu.classList.remove("flex");  
-  addAnimation()
-  setTimeout(() => {
-    heroSection.setAttribute('style', 'visibility: visible;')
-    document.getElementById("hamburger").classList.remove("hide");
-    document.getElementById("close").classList.add("hide");
-    resetAnimation()
-  }, 2800)
-};
-
-loadNavBar();
-loadMenu();
 
 const modalSection = () => {
   modal.innerHTML = `
