@@ -222,13 +222,12 @@ nav {
 } */
 
 .hero-btn button {
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 60px;
+  min-width: 60px;
   border-radius: 50%;
   border: solid 6px var(--textColor);
   color: var(--textColor);
   background-color: var(--background);
-  font-size: 5vh;
   margin-right: 20px;
   flex-grow: 2;
   display: flex;
@@ -361,6 +360,14 @@ h5 {
 
   .hero-text {
     padding-bottom: 80px;
+  }
+
+  .hero-btn button {
+    font-size: 4vh;
+  }
+
+  .hero-btn svg {
+    padding: 40px;
   }
 
   #webDev-btn {
@@ -521,6 +528,10 @@ h5 {
   #skill {
     font-size: 7vh;
     /* line-height: 2; */
+  }
+
+  .hero-btn button {
+    font-size: 4vh;
   }
 
   #inbetween {
