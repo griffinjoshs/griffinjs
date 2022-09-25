@@ -106,6 +106,10 @@ const pickService = (content) => {
     );
   skills(content.skills);
 
+  setHTML(".sub-header", content.subHeader);
+  setHTML(".skill-h", content.header);
+  setHTML(".about-me p", content.aboutParagraph);
+
   fetch("/api/projects")
     .then((response) => response.json())
     .then((resData) => {
@@ -130,10 +134,6 @@ const pickService = (content) => {
           });
         }
       });
-
-      setHTML(".sub-header", content.subHeader);
-      setHTML(".skill-h", content.header);
-      setHTML(".about-me p", content.aboutParagraph);
     });
 
   setHTML("#contact", contactSection(content.contactTitle));
