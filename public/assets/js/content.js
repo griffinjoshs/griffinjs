@@ -1,7 +1,7 @@
 const skillData = [
   {
     skillName: "Web Development",
-    header: "<h2 class='skill-h'>Web<br>Development</h2>",
+    header: "Web<br>Development",
     subHeader:
       'Let Me <span class="emphasize-text">Build</span> Your Dream <span class="emphasize-text">Website</span>',
     aboutParagraph:
@@ -67,7 +67,7 @@ const skillData = [
   },
   {
     skillName: "Digital Marketing",
-    header: "<h2 class='skill-h'>Digital<br>Marketing<h2>",
+    header: "Digital<br>Marketing",
     subHeader:
       'Let Me help you <span class="emphasize-text"> find new customers </span>',
     aboutParagraph:

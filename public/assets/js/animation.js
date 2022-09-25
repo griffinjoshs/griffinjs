@@ -61,13 +61,13 @@ const hideElementsForAnimation = () => {
   
   const loadNavBar = () => {
     navbar.innerHTML += `
-    <div class="nav-left" onclick="linkTo('/')">
+    <div class="nav-left slide-in left" onclick="linkTo('/')">
               <img src="./assets/images/grifflogobold.svg" height="80" width="80" id='navbar-logo' style='margin-right: 5px;'>
               <div class="name-logo">
                   <h1>Griffin</h1>
               </div>
           </div>
-          <div class="nav-right">
+          <div class="nav-right slide-in right">
          <button class='icon' id='hamburger' onclick='displayMenu()'>
           <ion-icon name="menu-outline"></ion-icon>
            </button>
@@ -86,9 +86,6 @@ const hideElementsForAnimation = () => {
     <div class='menu-btns'>
       <button onclick="linkTo('/')">
       <h5>Home</h5>
-      </button>
-      <button onclick="linkTo('/about')">
-      <h5>About</h5>
       </button>
       <button onclick="linkTo('/')">
       <h5>Resume</h5>

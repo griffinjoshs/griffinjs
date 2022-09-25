@@ -6,6 +6,7 @@
   <title>My name is Griffin || I am a Web Developer and a Digital Marketer for hire</title>
   <link rel="icon" type="image/x-icon" href="./assets/images/Griffin-logo.png">
   <link rel="stylesheet" href='./assets/css/styles.css'>
+  <link rel="stylesheet" href='./assets/css/fade.css'>
   <link rel="stylesheet" href='./assets/css/animation.css'>
 </head>
 <body>
@@ -26,27 +27,80 @@
             <div class="hero-btn-sec">
               <!-- <div class="btns-wrap"> -->
               <div class="hero-btn" id="webDev-btn">
-                <button class="service-btn" name="webDev">
+                <button class="service-btn roll-in left" name="webDev">
                   <ion-icon name="code-slash-outline"></ion-icon>
                 </button>
-                <h4>Web Devlopment</h4>
+                <h4 class="slide-in bottom">Web Devlopment</h4>
               </div>
               <div class="hero-btn" id="digMark-btn">
-                <button class="service-btn" name="digMark">
+                <button class="service-btn roll-in left" name="digMark">
                   <ion-icon name="cellular-outline"></ion-icon>
                 </button>
-                <h4>Digital Marketing</h4>
+                <h4 class="slide-in bottom">Digital Marketing</h4>
               </div>
             <!-- </div> -->
           </div>
           </div>
           <div class="hero-right">
-            <img src="./assets/images/griffin.webp" height="720" width="480">
+            <img class="slide-in bottom" src="./assets/images/griffin.webp" height="720" width="480">
           </div>
         </div>
         </div>
     </header>
-      <div id="under-section" class="clear-for-menu hide"></div>
+      <div id="under-section" class="clear-for-menu hide">
+        <section>
+          <div class="animated-img-container">
+          <div class="top-img-area">
+              <img class='slide-in top' src="./assets/images/blueliquid.jpg" />
+          </div>
+        <section class="skill-header" id='down-page'>
+        <div class="skill-header-top">
+        <div class="top-left">
+        </div>
+        <div class="top-right">
+        </div>
+        </div>
+        <div class="skill-header-bottom">
+        <h3 class="sub-header"></h3>
+        <br />
+        <h2 class='skill-h'></h2>
+        </div>
+        </div>
+        </section>
+        <section class="info slide-in bottom">
+          <!-- <div class="info-wrap"> -->
+          <div class="box-section slide-in left">
+          </div>
+          <div class="about-me">
+            <h4 class="sub-header">My name is <span class="emphasize-text">Griffin</span></h4>
+            <p></p>
+            <div class="about-btns">
+                <button class="square-btn transparent-btn">Hire Me</button>
+                <button class="square-btn white-btn cert-btn" name='${skill}-cert'>View My Certification</button>
+            </div>
+            
+          </div>
+          <div class="verticle-title">
+            <h3 class="section-header slide-in right">About Me</h3>
+          </div>
+          <!-- </div> -->
+          </section>
+          <section class="work-section slide-in bottom">
+            <div class="typeOfWork-section">
+            </div>
+            <div class="space-section"></div>
+            <div class="circle-wrap">
+              <div class="circle"></div>
+            </div>
+            </section>
+            <section class="projects">
+            <div class="verticle-title">
+            <h3 class="section-header">My Projects</h3>
+            </div>
+            <div class="project-section slide-in right" id='project-section'></div>
+           </section>
+           <section class="contact-options slide-in bottom" id='contact'></section>
+      </div>
 </body>
 <script src='./assets/js/content.js'></script>
 <script src='./assets/js/animation.js'></script>

@@ -21,54 +21,6 @@ const modalSection = () => {
 
 modalSection();
 
-const skillSection = (subHeader, header) => {
-  return `
-  <div class="animated-img-container">
-  <div class="top-img-area">
-      <img src="./assets/images/blueliquid.jpg" />
-  </div>
-<section class="skill-header" id='down-page'>
-<div class="skill-header-top">
-<div class="top-left">
-</div>
-<div class="top-right">
-</div>
-</div>
-<div class="skill-header-bottom">
-<h3 class="sub-header">${subHeader}</h3>
-<br />
-${header}
-</div>
-</div>
-</section>
-  `;
-};
-
-const infoSection = (aboutParagraph, skill) => {
-  return `
-  <section class="info">
-<!-- <div class="info-wrap"> -->
-<div class="box-section">
-</div>
-<div class="about-me">
-  <h4 class="sub-header">My name is <span class="emphasize-text">Griffin</span></h4>
-  <p>
-  ${aboutParagraph}
-  </p>
-  <div class="about-btns">
-      <button class="square-btn transparent-btn">Hire Me</button>
-      <button class="square-btn white-btn cert-btn" name='${skill}-cert'>View My Certification</button>
-  </div>
-  
-</div>
-<div class="verticle-title">
-  <h3 class="section-header">About Me</h3>
-</div>
-<!-- </div> -->
-</section>
-  `;
-};
-
 const skills = (content) => {
   content.map(
     (skillData) =>
@@ -86,7 +38,6 @@ const skills = (content) => {
 
 const contactSection = (title) => {
   return `
-  <section class="contact-options" id='contact'>
 <div class="contact-area">
 <div class="contact-details">
     <div class="addresses">
@@ -129,8 +80,11 @@ const contactSection = (title) => {
 <div class="verticle-title">
   <h3 class="section-header">${title}</h3>
 </div>
-</section>
   `;
+};
+
+let setHTML = (query, data) => {
+  document.querySelector(query).innerHTML = data;
 };
 
 const pickService = (content) => {
@@ -138,26 +92,7 @@ const pickService = (content) => {
   if (underSection.classList.contains("hide")) {
     underSection.classList.remove("hide");
   }
-  underSection.innerHTML = "";
-  underSection.innerHTML += `
-  ${skillSection(content.subHeader, content.header)}
-${infoSection(content.aboutParagraph, content.identifyer)}
-<section class="work-section">
-<div class="typeOfWork-section">
-</div>
-<div class="space-section"></div>
-<div class="circle-wrap">
-  <div class="circle"></div>
-</div>
-</section>
-<section class="projects">
-<div class="verticle-title">
-<h3 class="section-header">My Projects</h3>
-</div>
-<div class="project-section" id='project-section'></div>
-</section>
-${contactSection(content.contactTitle)}
-  `;
+
   (document.querySelector(".typeOfWork-section").innerHTML = ""),
     (document.querySelector(".box-section").innerHTML = ""),
     content.workOptions.map(
@@ -169,22 +104,56 @@ ${contactSection(content.contactTitle)}
     </div>
     `)
     );
-
-    // console.log(document.getElementById('project-section'))
-
   skills(content.skills);
+
+  fetch("/api/projects")
+    .then((response) => response.json())
+    .then((resData) => {
+      resData.results.forEach((data) => {
+        console.log(data.topic);
+        let projectData = [];
+        if (data.topic.includes(content.identifyer)) {
+          projectData.push(data);
+          console.log(projectData);
+          document.querySelector(".project-section").innerHTML = "";
+          projectData.map(
+            (data) => {
+            document.querySelector(".project-section").innerHTML += `
+    <div class="project-item">
+            <div class="project-img" style="background: url(${data.image});"> </div>
+            <div class='project-text'>
+            <h5>${data.projectName}</h5>
+            <p>${data.projectDescription}</p>
+            <button class="project-btn square-btn transparent-btn">View Project</button>
+            </div>
+    </div>
+    `;
+          });
+        }
+      });
+
+      setHTML(".sub-header", content.subHeader);
+      setHTML(".skill-h", content.header);
+      setHTML(".about-me p", content.aboutParagraph);
+    });
+
+  setHTML("#contact", contactSection(content.contactTitle));
 
   const socialBtnSec = document.querySelector(".social-btns");
 
-  socialMediaBtns.map((socialBtns) => {
-    socialBtnSec.innerHTML += `
-    <a href='${socialBtns.link}' target='_blank'>
-    <button>
-    ${socialBtns.icon}
-    </button>
-    </a>
-    `;
-  });
+  const showSocials = (htmlElement) => {
+    socialMediaBtns.forEach((socialBtns) => {
+      htmlElement.innerHTML += `
+      <a href='${socialBtns.link}' target='_blank'>
+      <button>
+      ${socialBtns.icon}
+      </button>
+      </a>
+      `;
+    });
+  };
+
+  showSocials(socialBtnSec);
 };
 
 // set specific skill's data to page
@@ -211,8 +180,8 @@ modal.addEventListener("click", (e) => {
 serviceBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     [].forEach.call(serviceBtn, (btn) => {
-      btn.classList.remove('selected')
-    })
+      btn.classList.remove("selected");
+    });
     let data = e.target.closest(".hero-btn");
     let chosenSkill;
     if (data.id.includes("webDev")) {
@@ -228,40 +197,10 @@ serviceBtn.forEach((btn) => {
       // console.log(document.querySelectorAll('.cert-btn'))
       openCertBtn = document.querySelectorAll(".cert-btn");
       // console.log(openCertBtn)
-      afterPageOpen(chosenSkill);
+      // afterPageOpen(chosenSkill);
     }, 400);
   });
 });
-
-const afterPageOpen = (skill) => {
-  const projects = document.getElementById("project-section");
-
-fetch("/api/projects")
-  .then((response) => response.json())
-  .then((resData) => {
-    resData.results.forEach((data) => {
-      // console.log(data.topic)
-      // console.log(skill)
-      let projectData = [];
-      if(data.topic.includes(skill)){
-        projectData.push(data)
-        console.log(projectData)
-        projectData.forEach((data) => {
-          projects.innerHTML += `
-    <div class="project-item">
-            <div class="project-img" style="background: url(${data.image});"> </div>
-            <div class='project-text'>
-            <h5>${data.projectName}</h5>
-            <p>${data.projectDescription}</p>
-            <button class="project-btn square-btn transparent-btn">View Project</button>
-            </div>
-    </div>
-    `;
-        });
-      }
-    })
-  });
-};
 
 openCertBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -281,4 +220,3 @@ const openModal = (e) => {
     openedModal.classList.add("digmark-Bg");
   }
 };
-

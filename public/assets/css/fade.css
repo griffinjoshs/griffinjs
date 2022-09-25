@@ -1,0 +1,42 @@
+.fade-in {
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear {
+    opacity: 1;
+}
+
+.left {
+    transform: translateX(-100%);
+  }
+  
+  .right {
+    transform: translateX(100%);
+  }
+
+  .top {
+    transform: translateY(-50%); 
+  }
+
+  .bottom {
+    transform: translateY(50%); 
+  }
+  
+  .left, .right, .top, .bottom {
+    transition: transform 400ms ease-in;
+  }
+  
+  .left.appear, .right.appear {
+    transform: translateX(0);
+    opacity: 1
+  }
+
+  .top.appear, .bottom.appear {
+    transform: translateY(0);
+    opacity: 1
+  }
+
+  .roll-in {
+    transform: rotate(-540deg);
+}
