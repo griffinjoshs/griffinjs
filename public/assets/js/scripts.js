@@ -110,12 +110,12 @@ const pickService = (content) => {
     .then((response) => response.json())
     .then((resData) => {
       resData.results.forEach((data) => {
-        console.log(data.topic);
         let projectData = [];
+        // console.log(data.topic);
+        console.log(projectData);
         if (data.topic.includes(content.identifyer)) {
           projectData.push(data);
           console.log(projectData);
-          document.querySelector(".project-section").innerHTML = "";
           projectData.map((data) => {
             document.querySelector(".project-section").innerHTML += `
     <div class="project-item">
