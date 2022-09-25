@@ -22,7 +22,7 @@ console.log(sliders)
 
 const appearOptions = {
   root: null,
-  threshold: 0,
+  threshold: 1,
   rootMargin: "0px"
 };
 
