@@ -958,7 +958,7 @@ h5 {
   display: flex;
   justify-content: space-between;
   height: max-content;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .projects h3 {

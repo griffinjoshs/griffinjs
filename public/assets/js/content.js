@@ -133,54 +133,6 @@ const skillData = [
   },
 ];
 
-const aboutPageData = [
-  {
-    header: "<h1 class='skill-h'>About Me</h1>",
-    subHeader:
-      "I am <span class='emphasize-text'>Griffin</span> this is <span class='emphasize-text'> my story</span>",
-      aboutParagraph:
-      "I am A Rutgers certified Full-Stack Web Developer. However i'm much more sharp on the front-end side, but I know enough of the back end to build almost any type of website you may need! <br/><br/> I have been building websites for many years, first thru Wix and Weebly, and eventually Wordpress which took my site building skills to the next level. But it was during COVID lockdown when I signed up for the Rutgers Full-Stack bootcamp which is when it all changed! Learning how to code took my web development skills to the next level! I can now build any kind of application or website needed as well as being able to go into existing ones and make crazy changes! It’s even enhanced my Wordpress abilities! <br/><br/> I am currently open to all different kinds of work. From freelancing as well as being hired into a large company! I am extremely excited for whatever opportunities come my way and happy to take web development to another level! So don’t be shy! Whether you want me to build your small business a website, or want me to join your team as a developer. Make sure to Contact me below!",
-      skills: [
-        {
-          skill: "Social Media",
-          icon: '<ion-icon name="share-social-outline"></ion-icon>',
-        },
-        {
-          skill: "SEO",
-          icon: '<ion-icon name="search-outline"></ion-icon>',
-        },
-        {
-          skill: "SEM",
-          icon: '<ion-icon name="search-circle-outline"></ion-icon>',
-        },
-        {
-          skill: "Email Marketing",
-          icon: '<ion-icon name="mail-outline"></ion-icon>',
-        },
-        {
-          skill: "Paid Ads",
-          icon: '<ion-icon name="megaphone-outline"></ion-icon>',
-        },
-        {
-          skill: "Content Creation",
-          icon: '<ion-icon name="color-palette-outline"></ion-icon>',
-        },
-        {
-          skill: "Analytic Tracking",
-          icon: '<ion-icon name="bar-chart-outline"></ion-icon>',
-        },
-        {
-          skill: "Zapier",
-          icon: '<ion-icon name="analytics-outline"></ion-icon>'
-        },
-        {
-          skill: "TikTok & Reels",
-          icon: '<ion-icon name="logo-tiktok"></ion-icon>'
-        },
-      ],
-    }
-]
-
 const contactPageData = [
     {
     header: "",

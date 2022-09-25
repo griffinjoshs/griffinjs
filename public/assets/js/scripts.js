@@ -116,8 +116,7 @@ const pickService = (content) => {
           projectData.push(data);
           console.log(projectData);
           document.querySelector(".project-section").innerHTML = "";
-          projectData.map(
-            (data) => {
+          projectData.map((data) => {
             document.querySelector(".project-section").innerHTML += `
     <div class="project-item">
             <div class="project-img" style="background: url(${data.image});"> </div>
