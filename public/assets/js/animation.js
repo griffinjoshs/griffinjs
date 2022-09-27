@@ -1,134 +1,57 @@
-const header = document.getElementById('header')
-const displaySkill = document.getElementById("displaySkill");
-const underSection = document.querySelector("#under-section");
-const navbar = document.getElementById("navbar");
-const navMenu = document.getElementById("menu");
-const clearForMenu = Array.from(document.querySelectorAll(".clear-for-menu"));
-const heroSection = document.querySelector('.hero-section')
+// const animateHomeScreen = () => {
+//   document.querySelector(".nav-left").classList.add("slide-in-blurred-left");
+//   document.querySelector(".nav-right").classList.add("slide-in-right");
+//   document.querySelector("#myName").classList.add("tracking-in-expand");
+//   document.querySelector(".hero-right img").classList.add("bounce-in-bottom");
+//   document.querySelectorAll('.service-btn').forEach((btn) => {
+//     btn.classList.add('roll-in-left')
+//   })
+//     document.querySelectorAll('.hero-btn h4').forEach((btn) => {
+//       console.log(btn)
+//       btn.classList.add('tracking-in-expand')
+//   })
+// }
 
-const hideElementsForAnimation = () => {
-    clearForMenu.forEach((clear) => {
-      clear.classList.add('hide')
-        })
-  }
-  
-  const showElementsAfterAnimation = () => {
-    clearForMenu.forEach((clear) => {
-      clear.classList.remove('hide')
-        })
-  }
-  
-  const showHero = () => {
-    if(heroSection != null){
-      heroSection.setAttribute('style', 'visibility: visible;')
-    }
-  }
-  
-  const hideHero = () => {
-    if(heroSection != null){
-      heroSection.setAttribute('style', 'visibility: hidden;')
-    }
-  }
-  
-  const addAnimation = () => {
-    document.body.classList.add('color-slide')
-  };
-  
-  const hideMenu = () => {
-  if(!navMenu.classList.contains('hide')){
-    navMenu.classList.add("hide");
-    navMenu.classList.remove("flex");  
-  }
-  }
-  
-  const showMenu = () => {
-    if(navMenu.classList.contains('hide')){
-      navMenu.classList.remove("hide");
-      navMenu.classList.add("flex");  
-    }
-    }
-  
-  const linkTo = (link) => {
-    addAnimation()
-    hideMenu()
-      hideElementsForAnimation()
-    setTimeout(() => {
-      window.location.href = link;
-      showHero()
-      resetAnimation()
-    }, 2500)
-  };
-  
-  const loadNavBar = () => {
-    navbar.innerHTML += `
-    <div class="nav-left slide-in left" onclick="linkTo('/')">
-              <img src="./assets/images/grifflogobold.svg" height="80" width="80" id='navbar-logo' style='margin-right: 5px;'>
-              <div class="name-logo">
-                  <h1>Griffin</h1>
-              </div>
-          </div>
-          <div class="nav-right slide-in right">
-         <button class='icon' id='hamburger' onclick='displayMenu()'>
-          <ion-icon name="menu-outline"></ion-icon>
-           </button>
-         <button class='icon hide' id='close' onclick='goBackToPage()'>
-         <ion-icon name="close-outline"></ion-icon>
-         </button>
-         <button class='icon hide' id='scrollTop'>
-         </button>
-         </div>
-    `;
-  };
-  
-  const loadMenu = () => {
-    navMenu.classList.remove("flex");
-    navMenu.innerHTML += `
-    <div class='menu-btns'>
-      <button onclick="linkTo('/')">
-      <h5>Home</h5>
-      </button>
-      <button onclick="linkTo('/')">
-      <h5>Resume</h5>
-      </button>
-      <button onclick="linkTo('/contact')">
-      <h5>Contact Me</h5>
-      </button>
-    </div>
-  
-    `;
-  };
-  
-  const resetAnimation = () => {
-    document.body.classList.remove("color-slide");
-  };
-  
-  
-  const displayMenu = async () => {
-    addAnimation()
-    hideElementsForAnimation()
-    hideHero()
-    setTimeout(() => {
-      showMenu()
-      document.getElementById("hamburger").classList.add("hide");
-      document.getElementById("close").classList.remove("hide");
-      resetAnimation()
-    }, 2800)
-   };
-  
-  const goBackToPage = () => {
-    // hideElementsForAnimation()
-    hideMenu()
-    addAnimation()
-    setTimeout(() => {
-      showElementsAfterAnimation()
-      showHero()
-      document.getElementById("hamburger").classList.remove("hide");
-      document.getElementById("close").classList.add("hide");
-      resetAnimation()
-    }, 2800)
-  };
-  
-  loadNavBar();
-  loadMenu();
-  
-  
+// animateHomeScreen()
+
+const faders = document.querySelectorAll('.fade-in')
+const sliders = document.querySelectorAll('.slide-in')
+const rollers = document.querySelectorAll('.roll-in')
+const colorChanger = document.querySelectorAll('.color-change')
+
+console.log(sliders)
+
+const appearOptions = {
+  root: null,
+  threshold: 1,
+  rootMargin: "0px"
+};
+
+const appearOnScroll = new IntersectionObserver (
+  (entries, appearOnScroll) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting){
+        return;
+      } else {
+        entry.target.classList.add('appear')
+        // entry.setAttribute('style', 'border: solid white 1px')
+        appearOnScroll.unobserve(entry.target)
+      }
+    })
+  })
+
+  faders.forEach((fader) => {
+    appearOnScroll.observe(fader)
+  })
+
+  sliders.forEach((slider) => {
+    appearOnScroll.observe(slider)
+  })
+
+  rollers.forEach((roll) => {
+    appearOnScroll.observe(roll)
+  })
+
+  colorChanger.forEach((change) => {
+    appearOnScroll.observe(change)
+  })
