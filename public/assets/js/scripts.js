@@ -83,6 +83,8 @@ const contactSection = (title) => {
   `;
 };
 
+const contactPage = document.getElementById('contactPage')
+
 let setHTML = (query, data) => {
   document.querySelector(query).innerHTML = data;
 };

@@ -17,6 +17,7 @@
 const faders = document.querySelectorAll('.fade-in')
 const sliders = document.querySelectorAll('.slide-in')
 const rollers = document.querySelectorAll('.roll-in')
+const colorChanger = document.querySelectorAll('.color-change')
 
 console.log(sliders)
 
@@ -39,14 +40,18 @@ const appearOnScroll = new IntersectionObserver (
     })
   })
 
-  faders.forEach(fader => {
+  faders.forEach((fader) => {
     appearOnScroll.observe(fader)
   })
 
-  sliders.forEach(slider => {
+  sliders.forEach((slider) => {
     appearOnScroll.observe(slider)
   })
 
-  rollers.forEach(roll => {
+  rollers.forEach((roll) => {
     appearOnScroll.observe(roll)
+  })
+
+  colorChanger.forEach((change) => {
+    appearOnScroll.observe(change)
   })

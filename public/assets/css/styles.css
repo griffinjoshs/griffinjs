@@ -60,7 +60,7 @@ button:hover {
   
 } */
 
-header {
+#header {
   height: 100vh;
   overflow: hidden;
 }
@@ -978,11 +978,11 @@ h5 {
   flex-direction: column;
   /* align-items: flex-end;
   justify-content: center; */
-  background: url("../images/blueliquid2.jpg");
-  background-attachment: fixed;
+  /* background: url("../images/blueliquid2.jpg"); */
+  /* background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   height: auto;
   margin-top: -400px;
   padding-bottom: 50px;
@@ -1273,4 +1273,16 @@ a {
 
 #cert-modal button:hover {
   color: var(--textColor);
+}
+
+.contact-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  height: 80vh;
+  /* width: 100vh; */
+}
+
+.contact-header h1 {
+
 }

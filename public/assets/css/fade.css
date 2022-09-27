@@ -40,3 +40,12 @@
   .roll-in {
     transform: rotate(-540deg);
 }
+
+.blueliquid2.appear {
+  transition-delay: 1s;
+    background: url("../images/blueliquid2.jpg");
+    background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
