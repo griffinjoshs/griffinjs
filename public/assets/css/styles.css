@@ -225,7 +225,6 @@ nav {
 
 .hero-btn {
   /* box-shadow: 75px -2px 70px var(--primaryColor); */
-  padding: 10px 20px 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -385,6 +384,10 @@ h5 {
 
   .hero-text {
     padding-top: 80px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px 10px 0;
   }
 
   .hero-btn button {
