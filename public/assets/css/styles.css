@@ -520,9 +520,9 @@ h5 {
     left: 0;
   }
 
-  .mobile-title {
+  /* .mobile-title {
     display: none;
-  }
+  } */
 
   .way-of-contact h5 {
     margin: 10px 15px 0 15px;
@@ -534,6 +534,10 @@ h5 {
 }
 
 @media screen and (max-width: 1100px) {
+  .menu-btns h5 {
+    font-size: 0.4em;
+  }
+
   .hero-text h2 {
     padding-bottom: 20px;
   }
@@ -709,9 +713,9 @@ h5 {
     padding-top: 70px;
   }
 
-  .mobile-title {
+  /* .mobile-title {
     font-size: 4vh;
-  }
+  } */
 
   .social-btns {
     justify-content: center;
@@ -722,8 +726,12 @@ h5 {
     width: 100%;
   }
 
-  .about-paragraph {
+  /* .about-paragraph {
     margin: 400px 0 100px 0;
+  } */
+
+  .contact-header {
+    /* justify-content: ; */
   }
 }
 
@@ -1279,10 +1287,11 @@ a {
   display: flex;
   align-items: flex-end;
   justify-content: right;
-  height: 80vh;
+  height: 90vh;
+  margin-bottom: 100px;
   /* width: 100vh; */
 }
 
 .contact-header h1 {
-
+  padding: 30px 0;
 }

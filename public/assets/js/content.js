@@ -1,3 +1,16 @@
+const socialMediaBtns = [
+  {
+    name: 'Github',
+    icon: "<ion-icon name='logo-github'></ion-icon>",
+    link: "https://github.com/griffinjoshs",
+  },
+  {
+    name:'Linkedin',
+    icon: "<ion-icon name='logo-linkedin'></ion-icon>",
+    link: "https://www.linkedin.com/in/griffin-surett-44a13b16a/",
+  },
+];
+
 const skillData = [
   {
     skillName: "Web Development",

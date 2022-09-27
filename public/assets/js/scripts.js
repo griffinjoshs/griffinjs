@@ -1,15 +1,5 @@
 let serviceBtn = document.querySelectorAll(".service-btn");
 const modal = document.querySelector("#cert-modal");
-const socialMediaBtns = [
-  {
-    icon: "<ion-icon name='logo-github'></ion-icon>",
-    link: "https://github.com/griffinjoshs",
-  },
-  {
-    icon: "<ion-icon name='logo-linkedin'></ion-icon>",
-    link: "https://www.linkedin.com/in/griffin-surett-44a13b16a/",
-  },
-];
 
 const modalSection = () => {
   modal.innerHTML = `
@@ -62,9 +52,6 @@ const contactSection = (title) => {
 <h4 class="footer-text">© 2022 Griffins Web Services.</h4>
 </div>
 <div class="contact-form">
-    <div class='mobile-title'>
-    <h3>Contact Form</h3>
-    </div>
     <form action="/api/subscribe" method="POST">
       <div class="form-name-section">
           <input type="text" class='contact-input input-field name-input' name="firstName" placeholder="First Name">
