@@ -1,15 +1,7 @@
+const webDevelopment = 'webDev'
+const digitalMarketing = 'digMark'
+
 let serviceBtn = document.querySelectorAll(".service-btn");
-const modal = document.querySelector("#cert-modal");
-
-const modalSection = () => {
-  modal.innerHTML = `
-  <button>
-    <ion-icon name="close-outline"></ion-icon>  
-  </button>
-  `;
-};
-
-modalSection();
 
 const skills = (content) => {
   content.map(
@@ -105,10 +97,10 @@ const pickService = (content) => {
       resData.results.forEach((data) => {
         let projectData = [];
         // console.log(data.topic);
-        console.log(projectData);
+        // console.log(projectData);
         if (data.topic.includes(content.identifyer)) {
           projectData.push(data);
-          console.log(projectData);
+          // console.log(projectData);
           projectData.map((data) => {
             document.querySelector(".project-section").innerHTML += `
     <div class="project-item">
@@ -155,14 +147,7 @@ const setPageData = (chosenSkill) => {
   });
 };
 
-// modal
-let openCertBtn = document.querySelectorAll(".cert-btn");
-
-modal.addEventListener("click", (e) => {
-  let closedModal = e.target.closest("#cert-modal");
-  // console.log(closedModal);
-  closedModal.classList.add("hide");
-});
+let chosenSkill;
 
 // find clicked button
 serviceBtn.forEach((btn) => {
@@ -170,12 +155,12 @@ serviceBtn.forEach((btn) => {
     [].forEach.call(serviceBtn, (btn) => {
       btn.classList.remove("selected");
     });
+    
     let data = e.target.closest(".hero-btn");
-    let chosenSkill;
-    if (data.id.includes("webDev")) {
-      chosenSkill = "webDev";
-    } else if (data.id.includes("digMark")) {
-      chosenSkill = "digMark";
+    if (data.id.includes(webDevelopment)) {
+      chosenSkill = webDevelopment;
+    } else if (data.id.includes(digitalMarketing)) {
+      chosenSkill = digitalMarketing;
     }
     btn.classList.add("selected");
     setPageData(chosenSkill);
@@ -185,26 +170,42 @@ serviceBtn.forEach((btn) => {
       // console.log(document.querySelectorAll('.cert-btn'))
       openCertBtn = document.querySelectorAll(".cert-btn");
       // console.log(openCertBtn)
-      // afterPageOpen(chosenSkill);
     }, 400);
   });
 });
 
-openCertBtn.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    openModal(e);
-  });
-});
+// modal
+let certModal = document.querySelector("#cert-modal");
 
-const openModal = (e) => {
-  // console.log(e.target.name)
-  let skill = e.target.name;
-  let openedModal = document.querySelector("#cert-modal");
-  // console.log(openedModal)
-  openedModal.classList.remove("hide");
-  if (skill.includes("webDev")) {
-    openedModal.classList.add("webdev-Bg");
-  } else if (skill.includes("digMark")) {
-    openedModal.classList.add("digmark-Bg");
-  }
+const modalSection = () => {
+  certModal.innerHTML = `
+  <button class='close-modal-btn'>
+    <ion-icon name="close-outline"></ion-icon>  
+  </button>
+  `;
 };
+
+modalSection();
+
+let certModalBtn = document.querySelectorAll('.cert-btn')
+
+certModalBtn.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    console.log(e.target)
+    certModal.classList.remove('hide')
+    // certModal.classList.remove('webDev-cert')
+    // certModal.classList.remove('digMark-cert')
+    if(chosenSkill === webDevelopment){
+      certModal.classList.add('webDev-cert')
+      console.log(chosenSkill)
+    } else if (chosenSkill === digitalMarketing){
+      certModal.classList.add('digMark-cert')
+      console.log(chosenSkill)
+    }
+  })
+}
+)
+
+document.querySelector('.close-modal-btn').addEventListener('click', e => {
+  certModal.classList.add('hide')
+})

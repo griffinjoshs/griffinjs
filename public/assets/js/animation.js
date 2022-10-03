@@ -19,7 +19,7 @@ const sliders = document.querySelectorAll('.slide-in')
 const rollers = document.querySelectorAll('.roll-in')
 const colorChanger = document.querySelectorAll('.color-change')
 
-console.log(sliders)
+// console.log(sliders)
 
 const appearOptions = {
   root: null,
