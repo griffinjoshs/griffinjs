@@ -131,6 +131,7 @@ const hideElementsForAnimation = () => {
       document.getElementById("hamburger").classList.remove("hide");
       document.getElementById("close").classList.add("hide");
       resetAnimation()
+      underSection.classList.add('hide')
     }, 2800)
   };
   
