@@ -697,6 +697,7 @@ h5 {
   .hero-left {
     text-align: center;
     padding-top: 55px;
+    overflow: hidden;
   }
 
   /* .hero-text {
