@@ -1,7 +1,61 @@
-const webDevelopment = 'webDev'
-const digitalMarketing = 'digMark'
+const webDevelopment = "webDev";
+const digitalMarketing = "digMark";
 
 let serviceBtn = document.querySelectorAll(".service-btn");
+
+// animations
+const animate = (classes) => {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      // console.log(entry.target);
+      if (!entry.isIntersecting) {
+        return;
+      } else {
+        entry.target.classList.add("appear");
+        // entry.setAttribute('style', 'border: solid white 1px')
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  observer.observe(classes);
+};
+
+const appearOptions = {
+  root: null,
+  threshold: 1,
+  rootMargin: "0px",
+};
+
+// const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+//   entries.forEach((entry) => {
+//     console.log(entry.target);
+//     if (!entry.isIntersecting) {
+//       return;
+//     } else {
+//       entry.target.classList.add("appear");
+//       // entry.setAttribute('style', 'border: solid white 1px')
+//       appearOnScroll.unobserve(entry.target);
+//     }
+//   });
+// });
+
+document.querySelectorAll(".fade-in").forEach((fader) => {
+  animate(fader);
+});
+
+document.querySelectorAll(".slide-in").forEach((slider) => {
+  animate(slider);
+});
+
+document.querySelectorAll(".roll-in").forEach((roll) => {
+  animate(roll);
+});
+
+document.querySelectorAll(".color-change").forEach((change) => {
+  animate(change);
+});
+
+// content spawning
 
 const skills = (content) => {
   content.map(
@@ -16,6 +70,9 @@ const skills = (content) => {
 </div>
     `)
   );
+  document.querySelectorAll(".info-box").forEach((info) => {
+    animate(info);
+  });
 };
 
 const contactSection = (title) => {
@@ -62,10 +119,26 @@ const contactSection = (title) => {
   `;
 };
 
-const contactPage = document.getElementById('contactPage')
+const contactPage = document.getElementById("contactPage");
 
 let setHTML = (query, data) => {
   document.querySelector(query).innerHTML = data;
+};
+
+const showSocials = (htmlElement) => {
+  socialMediaBtns.forEach((socialBtns) => {
+    htmlElement.innerHTML += `
+    <a href='${socialBtns.link}' target='_blank'>
+    <button>
+    ${socialBtns.icon}
+    </button>
+    </a>
+    `;
+  });
+};
+
+const isEven = (num) => {
+  return num % 2 == 0;
 };
 
 const pickService = (content) => {
@@ -73,18 +146,20 @@ const pickService = (content) => {
   if (underSection.classList.contains("hide")) {
     underSection.classList.remove("hide");
   }
-
   (document.querySelector(".typeOfWork-section").innerHTML = ""),
     (document.querySelector(".box-section").innerHTML = ""),
     content.workOptions.map(
       (work) =>
         (document.querySelector(".typeOfWork-section").innerHTML += `
-    <div class="type-of-work">
+    <div class="type-of-work slide-in left">
     <h3>${work.optionIcon}</h3>
     <h5>${work.optionName}</h5>
     </div>
     `)
     );
+  document.querySelectorAll(".type-of-work").forEach((info) => {
+    animate(info);
+  });
   skills(content.skills);
 
   setHTML(".sub-header", content.subHeader);
@@ -101,7 +176,8 @@ const pickService = (content) => {
         if (data.topic.includes(content.identifyer)) {
           projectData.push(data);
           // console.log(projectData);
-          projectData.map((data) => {
+          let iterator = 1;
+          projectData.forEach((data) => {
             document.querySelector(".project-section").innerHTML += `
     <div class="project-item">
             <div class="project-img" style="background: url(${data.image});"> </div>
@@ -112,6 +188,9 @@ const pickService = (content) => {
             </div>
     </div>
     `;
+
+            iterator++;
+            console.log(iterator);
           });
         }
       });
@@ -120,18 +199,6 @@ const pickService = (content) => {
   setHTML("#contact", contactSection(content.contactTitle));
 
   const socialBtnSec = document.querySelector(".social-btns");
-
-  const showSocials = (htmlElement) => {
-    socialMediaBtns.forEach((socialBtns) => {
-      htmlElement.innerHTML += `
-      <a href='${socialBtns.link}' target='_blank'>
-      <button>
-      ${socialBtns.icon}
-      </button>
-      </a>
-      `;
-    });
-  };
 
   showSocials(socialBtnSec);
 };
@@ -155,7 +222,7 @@ serviceBtn.forEach((btn) => {
     [].forEach.call(serviceBtn, (btn) => {
       btn.classList.remove("selected");
     });
-    
+
     let data = e.target.closest(".hero-btn");
     if (data.id.includes(webDevelopment)) {
       chosenSkill = webDevelopment;
@@ -174,11 +241,8 @@ serviceBtn.forEach((btn) => {
   });
 });
 
-// modal
-let certModal = document.querySelector("#cert-modal");
-
 const modalSection = () => {
-  certModal.innerHTML = `
+  document.querySelector("#cert-modal").innerHTML = `
   <button class='close-modal-btn'>
     <ion-icon name="close-outline"></ion-icon>  
   </button>
@@ -187,25 +251,29 @@ const modalSection = () => {
 
 modalSection();
 
-let certModalBtn = document.querySelectorAll('.cert-btn')
+document.querySelectorAll(".cert-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    openCertModal();
+  });
+});
 
-certModalBtn.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    console.log(e.target)
-    certModal.classList.remove('hide')
-    // certModal.classList.remove('webDev-cert')
-    // certModal.classList.remove('digMark-cert')
-    if(chosenSkill === webDevelopment){
-      certModal.classList.add('webDev-cert')
-      console.log(chosenSkill)
-    } else if (chosenSkill === digitalMarketing){
-      certModal.classList.add('digMark-cert')
-      console.log(chosenSkill)
-    }
-  })
-}
-)
+const openCertModal = () => {
+  console.log(document.querySelector("#cert-modal"));
+  // console.log(e.target);
+  document.querySelector(".cert-modal-container").classList.remove("hide");
+  document.querySelector(".cert-modal-container").classList.add("flex");
+  // document.querySelector("#cert-modal").classList.remove('webDev-cert')
+  // document.querySelector("#cert-modal").classList.remove('digMark-cert')
+  if (chosenSkill === webDevelopment) {
+    document.querySelector("#cert-modal").classList.add("webDev-cert");
+    // console.log(chosenSkill);
+  } else if (chosenSkill === digitalMarketing) {
+    document.querySelector("#cert-modal").classList.add("digMark-cert");
+    // console.log(chosenSkill);
+  }
+};
 
-document.querySelector('.close-modal-btn').addEventListener('click', e => {
-  certModal.classList.add('hide')
-})
+document.querySelector(".close-modal-btn").addEventListener("click", (e) => {
+  document.querySelector(".cert-modal-container").classList.add("hide");
+  document.querySelector(".cert-modal-container").classList.remove("flex");
+});
