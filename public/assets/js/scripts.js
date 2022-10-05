@@ -45,7 +45,7 @@ window.addEventListener('load', () => {
     })
     setTimeout(() => {
         document.querySelector('#load-wrap').classList.add('hide')
-        
+        }, 1100)
         // page animations from the intersection observer
 document.querySelectorAll(".fade-in").forEach((fader) => {
   animate(fader);
@@ -62,7 +62,6 @@ document.querySelectorAll(".roll-in").forEach((roll) => {
 document.querySelectorAll(".color-change").forEach((change) => {
   animate(change);
 }); 
-        }, 1100)
 }, 5000); 
 })
 
