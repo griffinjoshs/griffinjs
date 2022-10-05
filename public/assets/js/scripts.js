@@ -3,6 +3,24 @@ const digitalMarketing = "digMark";
 
 let serviceBtn = document.querySelectorAll(".service-btn");
 
+// load
+let loadBoxes = []
+const loadBoxContainer = document.querySelector('.load-box-container')
+
+loadBoxes.push('<div class="box"></div>'.repeat(100))
+
+console.log(loadBoxes)
+
+loadBoxContainer.innerHTML = loadBoxes
+
+setTimeout(() => {
+    document.querySelectorAll('.box').forEach(box => {
+        box.classList.add('after')
+    }
+)
+}, 1000);
+
+
 // animations
 const animate = (classes) => {
   const observer = new IntersectionObserver((entries, observer) => {

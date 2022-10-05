@@ -151,6 +151,6 @@ const contactPageData = [
     header: "",
     subHeader:
       "Ask Me <span class='emphasize-text'>Anything</span> You'd Like to",
-      contactTitle: 'Contact Me',
+      contactTitle: 'Message Me',
     }
 ]

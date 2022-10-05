@@ -90,9 +90,6 @@ const hideElementsForAnimation = () => {
       <button onclick="linkTo('/')">
       <h5>Resume</h5>
       </button>
-      <button onclick="linkTo('/contact')">
-      <h5>Contact Me</h5>
-      </button>
        <button onclick="linkTo('${socialMediaBtns[0].link}')">
        <h5>${socialMediaBtns[0].icon} ${socialMediaBtns[0].name}</h5>
        </button>

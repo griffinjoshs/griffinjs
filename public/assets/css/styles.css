@@ -1659,3 +1659,40 @@ a {
 .digMark-cert {
   background: url("../images/dig-mark-cert.pdf");
 }
+
+/* loader */
+#load-wrap {
+  position: absolute;
+  z-index: 10;
+}
+
+#load-wrap video {
+height: 100vh;
+width: 100vh;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.load-box-container {
+display: flex;
+flex-wrap: wrap;
+}
+
+.box {
+height: 10vh;
+width: 10vw;
+background-color: var(--primaryColor);
+box-sizing: border-box;
+}
+
+.after {
+/* outline: solid 1px var(--background); */
+animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+.flip-vertical-right {
+-webkit-animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        animation: flip-vertical-right 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
