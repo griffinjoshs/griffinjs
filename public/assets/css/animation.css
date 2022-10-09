@@ -604,12 +604,39 @@
     }
   }
 
-  @keyframes rotate {
+  /* @keyframes rotate {
       0% {
         transform: rotate(0)
       }
       100% {
         transform: rotate(360deg);
       }
-  }
-  
+  } */
+      
+      @keyframes roll-across {
+      0% {
+        transform: translateX(0px) rotateZ(0deg);
+      }
+      
+      70% {
+        transform: translateX(70vw) rotateZ(360deg);
+      }
+      
+      100% {
+        transform: translateX(100vw) rotateZ(360deg);
+      }
+}
+
+      @keyframes move-across {
+        0% {
+          transform: translateX(0px);
+        }
+        
+        70% {
+          transform: translateX(70vw);
+        }
+        
+        100% {
+          transform: translateX(100vw);
+        }
+}

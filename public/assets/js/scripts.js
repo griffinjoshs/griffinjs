@@ -40,6 +40,7 @@ loadBoxContainer.innerHTML = loadBoxes
 window.addEventListener('load', () => {
     setTimeout(() => {
       document.querySelector('#loadpic').classList.add('hide')
+      document.querySelector('#loadgif').classList.add('hide')
     document.querySelectorAll('.box').forEach(box => {
         box.classList.add('after')  
     })
@@ -62,7 +63,10 @@ document.querySelectorAll(".roll-in").forEach((roll) => {
 document.querySelectorAll(".color-change").forEach((change) => {
   animate(change);
 }); 
-}, 5000); 
+}, 1500); 
+
+loadNavBar();
+loadMenu();
 })
 
 // nav and menu animations 
@@ -200,8 +204,8 @@ const hideElementsForAnimation = () => {
     }, 2800)
   };
   
-  loadNavBar();
-  loadMenu();
+  // loadNavBar();
+  // loadMenu();
 
 // content spawning
 

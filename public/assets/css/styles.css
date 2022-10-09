@@ -1668,26 +1668,31 @@ a {
 
 #loadpic {
   position: absolute;
-  top: 50%;
-left: 50%;
+  top: 60%;
+/* left: 50%; */
 transform: translate(-50%, -50%);
   /* background-size: 30%; */
 }
 
 #loadpic img {
-animation: rotate 1.5s linear infinite;
-  height: 10pc;
-  width: 10pc;
+animation: roll-across 1.5s linear;
+  height: 6pc;
+  width: 6pc;
 }
 
-/* #load-wrap video {
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-} */
+
+#loadgif {
+  position: absolute;
+  top: 30%;
+
+}
+
+#loadgif img {
+  animation: move-across 1.5s linear reverse;
+  height: 17pc;
+  width: 10pc;
+  z-index: 20;
+}
 
 .load-box-container {
 display: flex;
