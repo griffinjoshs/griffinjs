@@ -63,7 +63,7 @@ document.querySelectorAll(".roll-in").forEach((roll) => {
 document.querySelectorAll(".color-change").forEach((change) => {
   animate(change);
 }); 
-}, 1500); 
+}, 1100); 
 
 loadNavBar();
 loadMenu();
