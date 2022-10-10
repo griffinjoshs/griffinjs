@@ -261,7 +261,7 @@ const contactSection = (title) => {
       <input type="email" class='contact-input input-field email' name="email" placeholder="Email Address">
       <input type="text" class='contact-input input-field subject' name="subject" placeholder="Subject">
       <textarea class='contact-input textarea' name="message" placeholder="Message"></textarea>
-      <button type="submit" class="square-btn transparent-btn">Send</button>
+      <button type="submit" class="form-submit square-btn transparent-btn">Send</button>
     </form>
 </div>
 </div>
@@ -353,6 +353,10 @@ const pickService = (content) => {
   const socialBtnSec = document.querySelector(".social-btns");
 
   showSocials(socialBtnSec);
+
+  document.querySelector('.form-submit').addEventListener('click', (e) => {
+    e.preventDefault
+  })
 };
 
 // set specific skill's data to page
