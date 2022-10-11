@@ -1683,14 +1683,14 @@ animation: roll-across 1.5s linear;
 
 #loadgif {
   position: absolute;
-  top: 30%;
+  top: 20%;
 
 }
 
 #loadgif img {
   animation: move-across 1.5s linear reverse;
-  height: 17pc;
-  width: 10pc;
+  height: 27pc;
+  width: 20pc;
   z-index: 20;
 }
 
