@@ -1,5 +1,10 @@
 const webDevelopment = "webDev";
 const digitalMarketing = "digMark";
+let url = window.location.protocol + '//' + window.location.hostname
+if (window.location.port != '' || window.location.port != null || window.location.port != undefined){
+  url += ':' + window.location.port
+}
+console.log(url)
 
 let serviceBtn = document.querySelectorAll(".service-btn");
 
@@ -18,7 +23,7 @@ const animate = (classes) => {
       }
     });
   });
-    observer.observe(classes);
+  observer.observe(classes);
 };
 
 const appearOptions = {
@@ -28,111 +33,128 @@ const appearOptions = {
 };
 
 // pre-loader
-let loadBoxes = []
-const loadBoxContainer = document.querySelector('.load-box-container')
 
-loadBoxes.push('<div class="box"></div>'.repeat(100))
+// call function onload
+{/* <img src="./assets/images/sideflip-copy.gif"/> */}
+const addImage = (imageContainerTag, src) => {
+  let image = document.createElement('img')
+  let imageContainer = document.querySelector(imageContainerTag)
+  image.src = url + src;
+  imageContainer.appendChild(image)
+  console.log(image)
+  console.log(image.src)
+  console.log(imageContainer)
+}
 
-console.log(loadBoxes)
-
-loadBoxContainer.innerHTML = loadBoxes
-
-window.addEventListener('load', () => {
+const preLoad = () => {
+  addImage('#loadpic', '/assets/images/grifflogobold.png')
+  addImage('#loadgif', '/assets/images/sideflip-copy.gif')
+  setTimeout(() => {
+    document.querySelector("#loadpic").classList.add("hide");
+    document.querySelector("#loadgif").classList.add("hide");
+    document.querySelectorAll(".box").forEach((box) => {
+      box.classList.add("after");
+    });
     setTimeout(() => {
-      document.querySelector('#loadpic').classList.add('hide')
-      document.querySelector('#loadgif').classList.add('hide')
-    document.querySelectorAll('.box').forEach(box => {
-        box.classList.add('after')  
-    })
-    setTimeout(() => {
-        document.querySelector('#load-wrap').classList.add('hide')
-        }, 1100)
-        // page animations from the intersection observer
-document.querySelectorAll(".fade-in").forEach((fader) => {
-  animate(fader);
+      document.querySelector("#load-wrap").classList.add("hide");
+    }, 1100);
+    // page animations from the intersection observer
+    document.querySelectorAll(".fade-in").forEach((fader) => {
+      animate(fader);
+    });
+
+    document.querySelectorAll(".slide-in").forEach((slider) => {
+      animate(slider);
+    });
+
+    document.querySelectorAll(".roll-in").forEach((roll) => {
+      animate(roll);
+    });
+
+    document.querySelectorAll(".color-change").forEach((change) => {
+      animate(change);
+    });
+  }, 1100);
+};
+let loadBoxes = [];
+const loadBoxContainer = document.querySelector(".load-box-container");
+
+loadBoxes.push('<div class="box"></div>'.repeat(100));
+
+console.log(loadBoxes);
+
+loadBoxContainer.innerHTML = loadBoxes;
+
+window.addEventListener("load", () => {
+  preLoad();
+  loadNavBar();
+  loadMenu();
 });
 
-document.querySelectorAll(".slide-in").forEach((slider) => {
-  animate(slider);
-});
-
-document.querySelectorAll(".roll-in").forEach((roll) => {
-  animate(roll);
-});
-
-document.querySelectorAll(".color-change").forEach((change) => {
-  animate(change);
-}); 
-}, 1100); 
-
-loadNavBar();
-loadMenu();
-})
-
-// nav and menu animations 
-const header = document.getElementById('header')
+// nav and menu animations
+const header = document.getElementById("header");
 const displaySkill = document.getElementById("displaySkill");
 const underSection = document.querySelector("#under-section");
 const navbar = document.getElementById("navbar");
 const navMenu = document.getElementById("menu");
 const clearForMenu = Array.from(document.querySelectorAll(".clear-for-menu"));
-const heroSection = document.querySelector('.hero-section')
+const heroSection = document.querySelector(".hero-section");
 
 const hideElementsForAnimation = () => {
-    clearForMenu.forEach((clear) => {
-      clear.classList.add('hide')
-        })
+  clearForMenu.forEach((clear) => {
+    clear.classList.add("hide");
+  });
+};
+
+const showElementsAfterAnimation = () => {
+  clearForMenu.forEach((clear) => {
+    clear.classList.remove("hide");
+  });
+};
+
+const showHero = () => {
+  if (heroSection != null) {
+    heroSection.setAttribute("style", "visibility: visible;");
   }
-  
-  const showElementsAfterAnimation = () => {
-    clearForMenu.forEach((clear) => {
-      clear.classList.remove('hide')
-        })
+};
+
+const hideHero = () => {
+  if (heroSection != null) {
+    heroSection.setAttribute("style", "visibility: hidden;");
   }
-  
-  const showHero = () => {
-    if(heroSection != null){
-      heroSection.setAttribute('style', 'visibility: visible;')
-    }
-  }
-  
-  const hideHero = () => {
-    if(heroSection != null){
-      heroSection.setAttribute('style', 'visibility: hidden;')
-    }
-  }
-  
-  const addAnimation = () => {
-    document.body.classList.add('color-slide')
-  };
-  
-  const hideMenu = () => {
-  if(!navMenu.classList.contains('hide')){
+};
+
+const addAnimation = () => {
+  document.body.classList.add("color-slide");
+};
+
+const hideMenu = () => {
+  if (!navMenu.classList.contains("hide")) {
     navMenu.classList.add("hide");
-    navMenu.classList.remove("flex");  
+    navMenu.classList.remove("flex");
   }
+};
+
+const showMenu = () => {
+  if (navMenu.classList.contains("hide")) {
+    navMenu.classList.remove("hide");
+    navMenu.classList.add("flex");
   }
-  
-  const showMenu = () => {
-    if(navMenu.classList.contains('hide')){
-      navMenu.classList.remove("hide");
-      navMenu.classList.add("flex");  
-    }
-    }
-  
-  const linkTo = (link) => {
-    addAnimation()
-    hideMenu()
-      hideElementsForAnimation()
-    setTimeout(() => {
-      window.location.href = link;
-      showHero()
-      resetAnimation()
-    }, 2500)
-  };
-  
-  const loadNavBar = () => {
-    navbar.innerHTML += `
+};
+
+const linkTo = (link) => {
+  addAnimation();
+  hideMenu();
+  hideElementsForAnimation();
+  setTimeout(() => {
+    window.location.href = link;
+    showHero();
+    resetAnimation();
+  }, 2500);
+};
+
+const loadNavBar = () => {
+  navbar.innerHTML += `
     <div class="nav-left slide-in left" onclick="linkTo('/')">
               <img src="./assets/images/grifflogobold.svg" height="80" width="80" id='navbar-logo' style='margin-right: 5px;'>
               <div class="name-logo">
@@ -150,11 +172,11 @@ const hideElementsForAnimation = () => {
          </button>
          </div>
     `;
-  };
-  
-  const loadMenu = () => {
-    navMenu.classList.remove("flex");
-    navMenu.innerHTML += `
+};
+
+const loadMenu = () => {
+  navMenu.classList.remove("flex");
+  navMenu.innerHTML += `
     <div class='menu-btns'>
       <button onclick="linkTo('/')">
       <h5>Home</h5>
@@ -171,41 +193,40 @@ const hideElementsForAnimation = () => {
     </div>
   
     `;
-  };
-  
-  const resetAnimation = () => {
-    document.body.classList.remove("color-slide");
-  };
-  
-  
-  const displayMenu = async () => {
-    addAnimation()
-    hideElementsForAnimation()
-    hideHero()
-    setTimeout(() => {
-      showMenu()
-      document.getElementById("hamburger").classList.add("hide");
-      document.getElementById("close").classList.remove("hide");
-      resetAnimation()
-    }, 2800)
-   };
-  
-  const goBackToPage = () => {
-     hideElementsForAnimation()
-    hideMenu()
-    addAnimation()
-    setTimeout(() => {
-      showElementsAfterAnimation()
-      showHero()
-      document.getElementById("hamburger").classList.remove("hide");
-      document.getElementById("close").classList.add("hide");
-      resetAnimation()
-      underSection.classList.add('hide')
-    }, 2800)
-  };
-  
-  // loadNavBar();
-  // loadMenu();
+};
+
+const resetAnimation = () => {
+  document.body.classList.remove("color-slide");
+};
+
+const displayMenu = async () => {
+  addAnimation();
+  hideElementsForAnimation();
+  hideHero();
+  setTimeout(() => {
+    showMenu();
+    document.getElementById("hamburger").classList.add("hide");
+    document.getElementById("close").classList.remove("hide");
+    resetAnimation();
+  }, 2800);
+};
+
+const goBackToPage = () => {
+  hideElementsForAnimation();
+  hideMenu();
+  addAnimation();
+  setTimeout(() => {
+    showElementsAfterAnimation();
+    showHero();
+    document.getElementById("hamburger").classList.remove("hide");
+    document.getElementById("close").classList.add("hide");
+    resetAnimation();
+    underSection.classList.add("hide");
+  }, 2800);
+};
+
+// loadNavBar();
+// loadMenu();
 
 // content spawning
 
@@ -354,9 +375,9 @@ const pickService = (content) => {
 
   showSocials(socialBtnSec);
 
-  document.querySelector('.form-submit').addEventListener('click', (e) => {
-    e.preventDefault
-  })
+  document.querySelector(".form-submit").addEventListener("click", (e) => {
+    e.preventDefault;
+  });
 };
 
 // set specific skill's data to page
