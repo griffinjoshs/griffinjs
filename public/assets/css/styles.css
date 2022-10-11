@@ -1668,9 +1668,9 @@ a {
 
 #loadpic {
   position: absolute;
-  top: 60%;
+  top: 50%;
 /* left: 50%; */
-transform: translate(-50%, -50%);
+/* transform: translate(-50%, -50%); */
   /* background-size: 30%; */
 }
 
@@ -1683,7 +1683,7 @@ animation: roll-across 1.5s linear;
 
 #loadgif {
   position: absolute;
-  top: 20%;
+  top: 10%;
 
 }
 
