@@ -142,10 +142,6 @@ nav {
   transform: rotate(47deg);
 }
 
-.nav-left h1 {
-  margin: 6px 0;
-}
-
 .nav-right {
   -ms-flex-negative: 1;
   flex-shrink: 1;
@@ -315,7 +311,7 @@ nav {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 2.5vh;
+  font-size: 2vh;
 }
 
 /* .hero-btn h4 {
@@ -329,7 +325,7 @@ nav {
   border: solid 6px var(--textColor);
   color: var(--textColor);
   background-color: var(--background);
-  margin-right: 20px;
+  margin-right: 10px;
   -webkit-box-flex: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
@@ -423,6 +419,8 @@ h5 {
   font-family: "Cabin", sans-serif;
 }
 
+
+
 .square-btn {
   padding: 15px 30px;
   /* min-width: 200px; */
@@ -467,6 +465,10 @@ h5 {
 }
 
 @media screen and (min-width: 1100px) {
+  .nav-left h1 {
+    margin: 6px 0;
+  }
+
   .hero-text h2 {
     padding-bottom: 100px;
   }
@@ -480,7 +482,7 @@ h5 {
   }
 
   #myName {
-    font-size: 4vh;
+    font-size: 4.5vh;
     line-height: 2.5;
   }
 
@@ -554,7 +556,7 @@ h5 {
   }
 
   .about-me p {
-    font-size: 3vh;
+    font-size: 2.2vh;
     padding: 0 20px 40px 0;
   }
 
@@ -591,14 +593,15 @@ h5 {
   }
 
   .project-item {
-    height: 60vh;
+      margin: 80px 0;
+    height: 45vh;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
     /* padding: 40px; */
   }
 
@@ -617,15 +620,43 @@ h5 {
   }
 
   .project-img {
-    width: 80%;
-    position: absolute;
+    width: 55%;
+    /* position: absolute; */
+    background: var(--primaryColor)!important;
+    height: 100%;
+    /* height: 100% */
+    -webkit-box-shadow: 0rem 0.2rem 0.4rem rgb(0 0 0 / 60%);
+    box-shadow: 0rem 0.2rem 0.4rem rgb(0 0 0 / 60%);
+    /* background: url("../images/blueliquid.jpg"); */
+    /* box-shadow: inset 1px 4px 50px 2px var(--primaryColor); */
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* -webkit-filter: contrast(50%);
+    filter: contrast(50%); */
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
   .project-text {
-    margin-bottom: -100px;
+    /* margin-bottom: -100px; */
     height: 100%;
-    width: 30%;
-    position: absolute;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
   }
 
   .project-img,
@@ -633,25 +664,68 @@ h5 {
     border-radius: 3%;
   }
 
+  .project-text ul {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .skill-list {
+    font-weight: 100;
+  }
+
+  .project-text ul li {
+    box-shadow: #eeeeeebd 0px 30px 60px -12px inset, #eeeeeebd 0px 18px 36px -18px inset;
+  }
+
+  .project-text p {
+    background: url('../images/blueliquid2.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: contrast(100%);
+    filter: contrast(100%);
+    /* padding: 0 60px; */
+    }
+
+  .project-item:nth-child(odd), .project-item:nth-child(even) {
+    justify-content: center;
+  }
+
   .project-item:nth-child(odd) .project-img {
-    left: 0;
+    align-items: flex-end;
+    text-align: left;
   }
 
   .project-item:nth-child(odd) .project-text {
-    right: 0;
+    align-items: flex-end;
+    text-align: right;
+    padding-left: 40px;
   }
 
+  .project-item:nth-child(odd) .project-text ul li {
+    margin-left: 10px;
+  }
+  
+  /* .project-item:nth-child(odd) .project-text p {
+    margin-left: -150px;
+  } */
+
   .project-item:nth-child(even) .project-img {
-    right: 0;
+    align-items: flex-start;
+    text-align: right;
   }
 
   .project-item:nth-child(even) .project-text {
-    left: 0;
+    align-items: flex-start;
+    text-align: left;
+    padding-right: 40px;
   }
 
-  /* .mobile-title {
-    display: none;
-  } */
+  .project-item:nth-child(even) .project-text ul li {
+    margin-right: 10px;
+  }
 
   .way-of-contact h5 {
     margin: 10px 15px 0 15px;
@@ -660,15 +734,39 @@ h5 {
   .about-paragraph {
     margin: 450px 260px 100px 260px;
   }
+
+  #loadgif img {
+    top: 10%;
+    height: 27pc;
+    width: 20pc;
+  }
+
+  #loadpic {
+    top: 50%;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+    /* background-size: 30%; */
+  }
+  
+  #loadpic img {
+  animation: roll-across 1.5s linear;
+  height: 6pc;
+  width: 6pc;
+}
 }
 
 @media screen and (max-width: 1100px) {
+  .nav-left h1 {
+    margin: 2px 0;
+    font-size: 40px;
+  }
+
   .menu-btns h5 {
     font-size: 0.4em;
   }
 
   .hero-text {
-    margin-bottom: 100px;
+    margin: 50px 0 100px 0;
   }
 
   .hero-text h2 {
@@ -683,7 +781,7 @@ h5 {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
 
   /* .btns-wrap {
@@ -695,7 +793,8 @@ h5 {
   }
 
   .hero-left {
-    text-align: center;
+    text-align: left;
+    margin-left: 30px;
     /* padding-top: 55px;
     overflow: hidden; */
   }
@@ -709,13 +808,13 @@ h5 {
   }
 
   #myName {
-    font-size: 3vh;
+    font-size: 2.5vh;
     /* line-height: 2.2; */
     margin-bottom: 30px;
   }
 
   #skill {
-    font-size: 5vh;
+    font-size: 4vh;
     /* line-height: 2; */
   }
 
@@ -733,7 +832,7 @@ h5 {
   }
 
   .skill-h {
-    font-size: 5vh;
+    font-size: 4vh;
   }
 
   .info {
@@ -876,9 +975,14 @@ h5 {
     width: 100%;
   }
 
-  .project-img,
   .project-text {
-    width: 100%;
+    width: 80%;
+    box-shadow: #eeeeeebd 0px 30px 60px -12px inset, #eeeeeebd 0px 18px 36px -18px inset;
+     padding: 40px 30px 0 30px;
+  }
+
+  .project-img {
+    display: none;
   }
 
   .contact-area {
@@ -913,6 +1017,42 @@ h5 {
 
   .contact-header {
     /* justify-content: ; */
+  }
+
+  #loadgif img {
+    /* top: 20%;
+    height: 17pc;
+    width: 10pc; */
+    display: none;
+  }
+
+  #loadpic {
+    position: absolute;
+    top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+    /* background-size: 30%; */
+    -webkit-animation: roll-in-left-boom 1.6s ease-out both;
+    animation: roll-in-left-boom 1.6s ease-out both;
+  }
+  
+  #loadpic img {
+    height: 8pc;
+    width: 8pc;
+  }
+
+  .project-text ul {
+    font-size: 1rem;
+    /* padding: 0 60px; */
+  }
+
+  .project-text ul {
+    justify-content: center;
+  }
+
+  .project-text ul li {
+  padding: 5px 10px;
+    margin-bottom: 10px;
   }
 }
 
@@ -1247,7 +1387,6 @@ h5 {
 
 .project-item {
   background: transparent;
-  margin: 80px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1267,40 +1406,6 @@ h5 {
   margin: 15px 0;
 }
 
-.project-img {
-  height: 100%;
-  /* width: 50%; */
-  /* height: 100% */
-  -webkit-box-shadow: 0rem 0.2rem 0.4rem rgb(0 0 0 / 60%);
-  box-shadow: 0rem 0.2rem 0.4rem rgb(0 0 0 / 60%);
-  background: url("../images/blueliquid.jpg");
-  /* background: orange; */
-  /* background-attachment: fixed; */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-filter: contrast(50%);
-  filter: contrast(50%);
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-  -ms-flex-direction: column-reverse;
-  flex-direction: column-reverse;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.project-img:hover {
-  -webkit-filter: contrast(100%);
-  filter: contrast(100%);
-}
-
 .project-text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1316,12 +1421,18 @@ h5 {
   -ms-flex-align: center;
   align-items: center;
   background: transparent;
-  -webkit-box-shadow: inset 1px 4px 50px 2px var(--textColor);
-  box-shadow: inset 1px 4px 50px 2px var(--textColor);
+  /* -webkit-box-shadow: inset 1px 4px 50px 2px var(--textColor);
+  box-shadow: inset 1px 4px 50px 2px var(--textColor); */
 }
 
 .project-text p {
-  font-size: 1.2rem;
+  overflow: hidden;
+    /* text-overflow: ellipsis; */
+    display: -webkit-box;
+    /* -webkit-line-clamp: 6;
+    line-clamp: 6; */
+    -webkit-box-orient: vertical;
+  font-size: .8rem;
 }
 
 .project-btn {
@@ -1330,9 +1441,21 @@ h5 {
   -o-transition: 1.5s;
   transition: 1.5s;
   background: none;
-  border: solid var(--textColor) 2px;
+  border: none;
   color: var(--textColor);
   margin: 50px 0;
+  font-size: 20px;
+}
+
+.project-text ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.project-text ul li {
+ margin-bottom: 10px;
 }
 
 .project-img:hover {
@@ -1606,16 +1729,24 @@ a {
 
   width: 50vw;
   height: 70vh;
-  background: red;
+  /* background: red; */
   z-index: 100;
 }
 
 .webdev-Bg {
-  background: purple;
+  background: purple!important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: url("../images/Web-Certificate.pdf")!important; */
 }
 
 .digmark-Bg {
-  background: green;
+  background: green!important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: url("../images/dig-mark-cert.pdf")!important; */
 }
 
 #cert-modal button {
@@ -1652,14 +1783,6 @@ a {
   padding: 30px 0;
 }
 
-.webDev-cert {
-  background: url("../images/Web-Certificate.pdf");
-}
-
-.digMark-cert {
-  background: url("../images/dig-mark-cert.pdf");
-}
-
 /* loader */
 #load-wrap {
   position: fixed;
@@ -1668,29 +1791,15 @@ a {
 
 #loadpic {
   position: absolute;
-  top: 50%;
-/* left: 50%; */
-/* transform: translate(-50%, -50%); */
-  /* background-size: 30%; */
-}
-
-#loadpic img {
-animation: roll-across 1.5s linear;
-  height: 6pc;
-  width: 6pc;
 }
 
 
 #loadgif {
   position: absolute;
-  top: 10%;
-
 }
 
 #loadgif img {
   animation: move-across 1.5s linear reverse;
-  height: 27pc;
-  width: 20pc;
   z-index: 20;
 }
 
@@ -1703,6 +1812,7 @@ flex-wrap: wrap;
 height: 10vh;
 width: 10vw;
 background-color: var(--primaryColor);
+/* background: url('../images/mario.jpg'); */
 box-sizing: border-box;
 }
 

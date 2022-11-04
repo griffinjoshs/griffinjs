@@ -1,10 +1,17 @@
+// TODO: make createimg function more intellegent for modal. the function needs to handle the image size so that it sometimes
+// can take up the whole container that its in. use JS to size the image accordingly.
+
 const webDevelopment = "webDev";
 const digitalMarketing = "digMark";
-let url = window.location.protocol + '//' + window.location.hostname
-if (window.location.port != '' || window.location.port != null || window.location.port != undefined){
-  url += ':' + window.location.port
+let url = window.location.protocol + "//" + window.location.hostname;
+if (
+  window.location.port != "" ||
+  window.location.port != null ||
+  window.location.port != undefined
+) {
+  url += ":" + window.location.port;
 }
-console.log(url)
+console.log(url);
 
 let serviceBtn = document.querySelectorAll(".service-btn");
 
@@ -35,20 +42,22 @@ const appearOptions = {
 // pre-loader
 
 // call function onload
-{/* <img src="./assets/images/sideflip-copy.gif"/> */}
-const addImage = (imageContainerTag, src) => {
-  let image = document.createElement('img')
-  let imageContainer = document.querySelector(imageContainerTag)
-  image.src = url + src;
-  imageContainer.appendChild(image)
-  console.log(image)
-  console.log(image.src)
-  console.log(imageContainer)
+{
+  /* <img src="./assets/images/sideflip-copy.gif"/> */
 }
+const addImage = (imageContainerTag, src) => {
+  let image = document.createElement("img");
+  let imageContainer = document.querySelector(imageContainerTag);
+  image.src = url + src;
+  imageContainer.appendChild(image);
+  console.log(image);
+  console.log(image.src);
+  console.log(imageContainer);
+};
 
 const preLoad = () => {
-  addImage('#loadpic', '/assets/images/grifflogobold.png')
-  addImage('#loadgif', '/assets/images/sideflip-copy.gif')
+  addImage("#loadpic", "/assets/images/grifflogobold.png");
+  addImage("#loadgif", "/assets/images/sideflip-copy.gif");
   setTimeout(() => {
     document.querySelector("#loadpic").classList.add("hide");
     document.querySelector("#loadgif").classList.add("hide");
@@ -351,13 +360,19 @@ const pickService = (content) => {
           // console.log(projectData);
           let iterator = 1;
           projectData.forEach((data) => {
+            let projectSkills = data.skills.map((s) => `<li>${s.skill}</li>`).join('')
+            console.log(data.skills)
             document.querySelector(".project-section").innerHTML += `
     <div class="project-item">
             <div class="project-img" style="background: url(${data.image});"> </div>
             <div class='project-text'>
             <h5>${data.projectName}</h5>
+            <ul class='project-skills'>${projectSkills}</ul>
             <p>${data.projectDescription}</p>
-            <button class="project-btn square-btn transparent-btn">View Project</button>
+            <div class='project-btn-section'>
+            <button class="project-btn"><ion-icon name="download-outline"></ion-icon></button>
+            <button class='project-btn'><ion-icon name="logo-github"></ion-icon></button>
+            </div>
             </div>
     </div>
     `;
@@ -411,7 +426,11 @@ serviceBtn.forEach((btn) => {
     // modal.className = "";
     setTimeout(() => {
       window.location.href = "#under-section";
-      // console.log(document.querySelectorAll('.cert-btn'))
+      if (chosenSkill === webDevelopment){
+      document.querySelector("#cert-modal").classList.add('webdev-Bg')
+      } else if (chosenSkill === digitalMarketing) {
+        document.querySelector("#cert-modal").classList.add('digmark-Bg')
+      }
       openCertBtn = document.querySelectorAll(".cert-btn");
       // console.log(openCertBtn)
     }, 400);
