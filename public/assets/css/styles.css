@@ -878,7 +878,7 @@ h5 {
   .about-me {
     font-size: 2vh;
     width: 70%;
-    /* padding-left: 50px; */
+    padding-top: 200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
