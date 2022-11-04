@@ -765,6 +765,11 @@ h5 {
     font-size: 0.4em;
   }
 
+  /* header */
+.hero-section {
+  height: 50vh;
+}
+
   .hero-text {
     margin: 50px 0 100px 0;
   }
