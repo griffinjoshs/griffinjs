@@ -354,14 +354,15 @@ const pickService = (content) => {
       resData.results.forEach((data) => {
         let projectData = [];
         // console.log(data.topic);
-        // console.log(projectData);
+        console.log(data);
         if (data.topic.includes(content.identifyer)) {
           projectData.push(data);
           // console.log(projectData);
           let iterator = 1;
           projectData.forEach((data) => {
-            let projectSkills = data.skills.map((s) => `<li>${s.skill}</li>`).join('')
-            console.log(data.skills)
+            let projectSkills = data.skills.map((s) => `<li>${s}</li>`).join('')
+            // console.log(data.skills)
+            console.log(projectSkills)
             document.querySelector(".project-section").innerHTML += `
     <div class="project-item">
             <div class="project-img" style="background: url(${data.image});"> </div>
