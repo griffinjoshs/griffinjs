@@ -307,7 +307,6 @@ button:hover {
   -ms-flex-pack: justify;
   justify-content: space-between;
   width: 75%;
-  padding: 100px 0 50px 0;
   /* position: absolute;
   bottom: 0; */
 }
@@ -1233,6 +1232,10 @@ a {
 
   .head-img-section img {
     width: 400px;
+  }
+
+  .hero-btn-sec {
+    padding: 100px 0 50px 0;
   }
 
   .headers h2 {
