@@ -102,7 +102,6 @@ p {
   flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
 }
 
 /* buttons */
@@ -1226,6 +1225,10 @@ a {
     --tableItems: 1.1rem;
     --icon: 3rem;
     --placeholder: 1.3rem;
+  }
+
+  #header {
+    justify-content: space-between;
   }
 
   .head-img-section img {
